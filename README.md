@@ -102,6 +102,12 @@ Functions include:
 - LDF: Arithmetic AVG & Vol-Weighted AVG: calculate LDF using simple arithmetic average and volume-weighted average
 - Summary: consolidate earned premiums, incurred losses, cumulative paid loss, calculted Age-to-Ult LDF, Ult Losses, IBNR
 
+Screenshots:
+- Triangle construction
+  ![pic1](../Figures/Su)
+- Development factors
+- Ultimate losses
+- IBNR estimates
 
 ### 3. Python Implementation
 Implemented using:
@@ -111,13 +117,6 @@ Implemented using:
 - chainladder
 
 The Python implementation reproduces the reserving calculations using actuarial libraries and provides an independent validation of the Excel and VBA models.
-
-Include:
-
-- Triangle construction
-- Development factors
-- Ultimate losses
-- IBNR estimates
 
 ### 4. R Implementation
 Implemented using:
