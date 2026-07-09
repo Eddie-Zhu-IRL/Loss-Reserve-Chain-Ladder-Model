@@ -104,7 +104,7 @@ Functions include:
 
 Screenshots:
 - Triangle construction
-  ![pic1](../Figures/Su)
+  ![pic1](../Figures/Summary_Excel.png)
 - Development factors
 - Ultimate losses
 - IBNR estimates
