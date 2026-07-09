@@ -103,11 +103,12 @@ Functions include:
 - Summary: consolidate earned premiums, incurred losses, cumulative paid loss, calculted Age-to-Ult LDF, Ult Losses, IBNR
 
 Screenshots:
-- Triangle construction
-  ![pic1](../Figures/Summary_Excel.png)
-- Development factors
-- Ultimate losses
-- IBNR estimates
+- Triangle construction and LDF: Excel & VBA
+  ![pic1](Figures/TriangleLDF_Excel.png) <br>
+  ![pic1](Figures/TriangleLDF_VBA.png)
+- Ultimate losses and IBNR estimates: Excel & VBA
+  ![pic1](Figures/Summary_Excel.png) <br>
+  ![pic1](Figures/Summary_VBA.png)  
 
 ### 3. Python Implementation
 Implemented using:
