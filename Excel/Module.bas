@@ -175,12 +175,9 @@ Sub Summary()
     Dim Incurred_Losses() As Variant
     Dim Cum_Paid_Loss() As Variant
     
-    Dim Ult_Loss_Incur() As Variant
-    Dim Reserve_Incur() As Variant
-    Dim IBNR_Incur() As Variant
-    Dim Ult_Loss_Paid() As Variant
-    Dim Reserve_Paid() As Variant
-    Dim IBNR_Paid() As Variant
+    Dim Ult_Loss() As Variant
+    Dim Reserve() As Variant
+    Dim IBNR() As Variant
     
     Dim Age() As Variant
     Dim Age_Ult_LDF() As Variant
@@ -207,13 +204,10 @@ Sub Summary()
     ReDim Age(1 To UBound(Accident_Year, 1))
     ReDim Age_Ult_LDF(1 To UBound(Accident_Year, 1))
     
-    ReDim Ult_Loss_Incur(1 To UBound(Accident_Year, 1))
-    ReDim Reserve_Incur(1 To UBound(Accident_Year, 1))
-    ReDim IBNR_Incur(1 To UBound(Accident_Year, 1))
+    ReDim Ult_Loss(1 To UBound(Accident_Year, 1))
+    ReDim Reserve(1 To UBound(Accident_Year, 1))
+    ReDim IBNR(1 To UBound(Accident_Year, 1))
     
-    ReDim Ult_Loss_Paid(1 To UBound(Accident_Year, 1))
-    ReDim Reserve_Paid(1 To UBound(Accident_Year, 1))
-    ReDim IBNR_Paid(1 To UBound(Accident_Year, 1))
     
     For i = 1 To UBound(Accident_Year, 1)
         For rowID = 1 To LastRow
@@ -229,13 +223,16 @@ Sub Summary()
                     Age_Ult_LDF(i) = ws.Range("WeightedCDF").Offset(0, Age(i) - 1).Value
                  End If
                  
-                 Ult_Loss_Incur(i) = Incurred_Losses(i) * Age_Ult_LDF(i)
-                 Reserve_Incur(i) = Ult_Loss_Incur(i) - Cum_Paid_Loss(i)
-                 IBNR_Incur(i) = Ult_Loss_Incur(i) - Incurred_Losses(i)
-                 
-                 Ult_Loss_Paid(i) = Cum_Paid_Loss(i) * Age_Ult_LDF(i)
-                 Reserve_Paid(i) = Ult_Loss_Paid(i) - Cum_Paid_Loss(i)
-                 IBNR_Paid(i) = Ult_Loss_Paid(i) - Cum_Paid_Loss(i)
+                 If ws.Range("D70").Value = "IncurredLosses" Then
+                    Ult_Loss(i) = Incurred_Losses(i) * Age_Ult_LDF(i)
+                    Reserve(i) = Ult_Loss(i) - Cum_Paid_Loss(i)
+                    IBNR(i) = Ult_Loss(i) - Incurred_Losses(i)
+                 Else
+                    Ult_Loss(i) = Cum_Paid_Loss(i) * Age_Ult_LDF(i)
+                    Reserve(i) = Ult_Loss(i) - Cum_Paid_Loss(i)
+                    IBNR(i) = Ult_Loss(i) - Cum_Paid_Loss(i)
+                 End If
+                    
                  
             End If
         Next rowID
@@ -247,14 +244,9 @@ Sub Summary()
     ws.Range("J67:J76").Value = Application.WorksheetFunction.Transpose(Age)
     ws.Range("K67:K76").Value = Application.WorksheetFunction.Transpose(Age_Ult_LDF)
     
-    ws.Range("L67:L76").Value = Application.WorksheetFunction.Transpose(Ult_Loss_Incur)
-    ws.Range("M67:M76").Value = Application.WorksheetFunction.Transpose(Reserve_Incur)
-    ws.Range("N67:N76").Value = Application.WorksheetFunction.Transpose(IBNR_Incur)
-    
-    ws.Range("P67:P76").Value = Application.WorksheetFunction.Transpose(Ult_Loss_Paid)
-    ws.Range("Q67:Q76").Value = Application.WorksheetFunction.Transpose(Reserve_Paid)
-    ws.Range("R67:R76").Value = Application.WorksheetFunction.Transpose(IBNR_Paid)
-
+    ws.Range("L67:L76").Value = Application.WorksheetFunction.Transpose(Ult_Loss)
+    ws.Range("M67:M76").Value = Application.WorksheetFunction.Transpose(Reserve)
+    ws.Range("N67:N76").Value = Application.WorksheetFunction.Transpose(IBNR)
 
 End Sub
 
@@ -265,3 +257,18 @@ Sub ClearContentPPauto()
     Worksheets("Data").Cells.ClearContents
     
 End Sub
+
+
+Sub ClearContentSummary_Python()
+
+    Worksheets("Summary").Range("F84:AB94").ClearContents
+    
+End Sub
+
+
+Sub ClearContentSummary_R()
+
+    Worksheets("Summary").Range("F100:L110").ClearContents
+    
+End Sub
+
