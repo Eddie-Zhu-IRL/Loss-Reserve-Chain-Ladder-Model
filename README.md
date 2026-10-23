@@ -84,7 +84,6 @@ Features include:
 - Named Ranges
 - INDEX/MATCH
 - SUMIFS
-- OFFSET
 - Conditional Formatting
 - Automatic recalculation of reserving metrics
 
