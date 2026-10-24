@@ -123,8 +123,11 @@ Implemented using:
 
 - ChainLadder
 - tidyverse
+- shiny
 
-The R implementation independently reproduces the reserving calculations and allows comparison with both manual and Python implementations.  
+The R implementation independently reproduces the reserving calculations and allows comparison with both manual, Excel Built-In functions, VBA and Python implementations. 
+
+
 
 ### 5. Validation
 
