@@ -121,6 +121,17 @@ Implemented using:
 
 The Python implementation reproduces the reserving calculations using actuarial libraries and provides an independent validation of the Excel and VBA models.
 
+**Key Steps:**
+  - Load data set from the CAS website and create the company list.
+  - Select a company by ID (same ordering as the Excel dropdown). Example: ID 5 is "Employers Mut Co Of Des Moines".
+  - Build loss triangle using cl.Triangle() on IncurredLosses and CumPaidLoss, and derive CaseReserve = IncurredLosses - CumPaidLoss.
+  - Check data structures of triangle built and output link ratio heatmaps.
+  - Fit Chainladder() and MackChainladder() and build the reserve summary.
+  - Write the summary to the Summary sheet of the Excel workbook (Section 5.1) for reconciliation.
+
+**Interactive**
+Use the interactive widget to switch company and measure (incurred, paid or case reserve).
+
 ### 4. R Implementation
 Implemented using:
 
@@ -131,7 +142,7 @@ Implemented using:
 The R implementation independently reproduces the reserving calculations and allows comparison with both manual, Excel Built-In functions, VBA and Python implementations. 
 
 **Key Steps:**
-  - Read the CAS PP Auto data set and list the companies.
+  - Load data set from CAS and list the companies.
   - Select a company by its position in the company list (same ID as the Excel dropdown order). Example: ID 5 is "Employers Mut Co Of Des Moines".
   - Loss Triangle: Filter to DevelopmentYear < 2008 and build the incurred loss triangle with as.triangle(). The triangle is cross-checked against a manual pivot_wider() version.
   - Ultimate Loss and IBNR: Fit MackChainLadder() and read the by-origin and total summaries with summary().
