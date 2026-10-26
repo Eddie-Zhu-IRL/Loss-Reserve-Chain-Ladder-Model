@@ -109,7 +109,7 @@ Screenshots:
   ![pic1](Figures/Summary_Excel.png) <br>
   ![pic1](Figures/Summary_VBA.png)  
 
-### 3. Python Implementation
+### 3. Python Implementation -- ChainLadder
 Implemented using:
 
 - pandas
@@ -127,12 +127,14 @@ The Python implementation reproduces the reserving calculations using actuarial 
   - Build loss triangle using cl.Triangle() on IncurredLosses and CumPaidLoss, and derive CaseReserve = IncurredLosses - CumPaidLoss.
   - Check data structures of triangle built and output link ratio heatmaps.
   - Fit Chainladder() and MackChainladder() and build the reserve summary.
-  - Write the summary to the Summary sheet of the Excel workbook (Section 5.1) for reconciliation.
+  - Write the summary to the Excel workbook for reconciliation.
 
 **Interactive**
-Use the interactive widget to switch company and measure (incurred, paid or case reserve).
+Use the interactive widget to switch company and measure (incurred, paid or case reserve) to output loss triangle, development trend for IncurredLosses, CumPaidLoss, and CaseReserve, and heatmap of Link Ratio for selected measure.
 
-### 4. R Implementation
+![](Figures/Python_InteractiveResults.png)
+
+### 4. R Implementation -- ChainLadder
 Implemented using:
 
 - ChainLadder
