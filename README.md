@@ -115,6 +115,9 @@ Implemented using:
 - pandas
 - numpy
 - chainladder
+- seaborn
+- matplotlib
+- ipywidgets
 
 The Python implementation reproduces the reserving calculations using actuarial libraries and provides an independent validation of the Excel and VBA models.
 
