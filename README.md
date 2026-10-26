@@ -136,7 +136,7 @@ The R implementation independently reproduces the reserving calculations and all
   - Loss Triangle: Filter to DevelopmentYear < 2008 and build the incurred loss triangle with as.triangle(). The triangle is cross-checked against a manual pivot_wider() version.
   - Ultimate Loss and IBNR: Fit MackChainLadder() and read the by-origin and total summaries with summary().
   - Write the Chain Ladder Summary table of the Excel workbook for reconciliation.
-<br>![](MackChain_Output.png)
+<br>![](Figures/MackChain_Output.png)
 
 **Interactive app (Shiny)**
 
@@ -146,7 +146,7 @@ The "Interactive" section of the Jupyter notebook launches a small Shiny app in 
   - the Mack chain ladder summary by accident year (latest, development to date, ultimate, IBNR, Mack standard error, CV of IBNR).
 
 Ultimate loss and IBNR match the Excel (built-in and VBA) and Python results for every accident year.
-<br>![](R_InteractiveResults.png)
+<br>![](Figures/R_InteractiveResults.png)
 
 ### 5. Validation
 
