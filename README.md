@@ -132,10 +132,19 @@ The R implementation independently reproduces the reserving calculations and all
 
 **Key Steps:**
   - Read the CAS PP Auto data set and list the companies.
-  - Select a company by its position in the company list (same ID as the Excel dropdown order). Example: ID 5 is Employers Mut Co Of Des Moines.
+  - Select a company by its position in the company list (same ID as the Excel dropdown order). Example: ID 5 is "Employers Mut Co Of Des Moines".
   - Loss Triangle: Filter to DevelopmentYear < 2008 and build the incurred loss triangle with as.triangle(). The triangle is cross-checked against a manual pivot_wider() version.
   - Ultimate Loss and IBNR: Fit MackChainLadder() and read the by-origin and total summaries with summary().
   - Write the Chain Ladder Summary table of the Excel workbook for reconciliation.
+
+**Interactive app (Shiny)**
+
+The "Interactive" section of the Jupyter notebook launches a small Shiny app in the browser. Choose a company from the dropdown and the app rebuilds, for that company:
+
+  - the incurred loss triangle (accident year by development lag), and
+  - the Mack chain ladder summary by accident year (latest, development to date, ultimate, IBNR, Mack standard error, CV of IBNR).
+
+Ultimate loss and IBNR match the Excel (built-in and VBA) and Python results for every accident year.
 
 ### 5. Validation
 
